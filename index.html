@@ -14,7 +14,24 @@
 
 </head>
 <body>
-    <header></header>
+    <audio id="notLettersound">
+        <source src="assets/sounds/notletter.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="beginsound">
+        <source src="assets/sounds/begin.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gameoversound">
+        <source src="assets/sounds/collapse.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="rightsound">
+        <source src="assets/sounds/right.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="wrongsound">
+        <source src="assets/sounds/wrong.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="youwinsound">
+            <source src="assets/sounds/victory.mp3" type="audio/mpeg">
+        </audio>
     <div class="container">
         <div class="row">
             <div class="col-sm-2"></div>
@@ -41,10 +58,12 @@
                 <div class="row">
                     <h2>Guess a letter!</h2>
                 </div>
-                <div class="row" id="status display">
-                    <p id="wins"> </p>
-                    <p id="losses"> </p>
-                    <p id="integrity"> </p>
+                <div class="row" id="record">
+                </div>
+                <div class="row" id="statusdisplay">
+                </div>
+                <div class="row">
+                    <h2>GUESSED:</h2>
                 </div>
                 <div class="row" id="guessed"></div>
             </div>
