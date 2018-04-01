@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: url("../images/stars.jpg");
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    height: 70px;
+    width: 150px;
+    border: none;
+    color: black;
+    background-color: #216fbf;
+    border-radius: 8px;
+    font-family: 'Roboto';
+}
+
+.container {
+    width: 960px;
+}
+
+
+
+#wordContainer {
+    align-content: center;
+    height: 70px;  
+    padding:10px;  
+}
+
+.letterContainer {
+    width: 50px;
+    height: 50px;
+}
+#picture {
+    width: 450px;
+    height: 450px;
+}
