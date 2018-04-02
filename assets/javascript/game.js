@@ -9,7 +9,9 @@ var hullIntegrity = 10;
 // on key press, select one at random
 document.getElementById("engage").onclick = function crewSelect() {
     // reset everything, disable button, and select random puzzle answer
+    
     document.getElementById("engage").disabled = true;
+    hulIntegrity = 10;
     var guessed = [];
     var arrayPosition = Math.floor(Math.random() * crew.length);
     var crewMember = crew[arrayPosition];
@@ -26,7 +28,8 @@ document.getElementById("engage").onclick = function crewSelect() {
     document.getElementById('picture').src="assets/images/enterprise.jpg";
     document.getElementById("statusdisplay").innerHTML = status;
     document.getElementById("record").innerHTML = winLoss;
-    
+    var clearOut = " ";
+    document.getElementById("wordContainer").innerHTML = clearOut;
         // replace title in "wordContainer" div with div blanks for letters
     for (var i=0; i< crewMember.length; i++) {
         var insignia = document.createElement("div");
@@ -37,12 +40,7 @@ document.getElementById("engage").onclick = function crewSelect() {
             "<img src='assets/images/insignia.png' alt='?' class='letterContainer'>"
             document.getElementById("letterContainer[" + i + "]").innerHTML = starfleet
         
-      //  var insignia = document.createElement("img");
-      //      insignia.setAttribute("src", "assets/images/insignia.png");
-      //      insignia.setAttribute("alt", "?");
-      //      insignia.setAttribute("class", "letterContainer");
-      //      insignia.setAttribute("id", "letterContainer[" + i + "]");
-      //      document.getElementById("wordContainer").appendChild(insignia);
+
     }
 
     document.onkeyup = function(event) {
@@ -52,7 +50,7 @@ document.getElementById("engage").onclick = function crewSelect() {
         if (alphabet.indexOf(guess) == -1 || guessed.indexOf(guess) !=-1) {
             var noletterforyou = document.getElementById("notLettersound");
             noletterforyou.play();
-            alert("Please press a LETTER key that you HAVE NOT guessed yet.");
+            alert("Please press a LETTER key that you have NOT guessed yet.");
                                     
         }
         else {
@@ -75,7 +73,10 @@ document.getElementById("engage").onclick = function crewSelect() {
                 youWin.play();
                 document.getElementById("picture").src = winPicture[arrayPosition];
                 wins++
+                var again = "RE-ENGAGE?";
+                document.getElementById("engage").innerHTML = again;
                 // may need to put this in separate reset later in code
+                document.getElementById("engage").disabled = false;
                 document.getElementById("record").innerHTML = winLoss;
                 hullIntegrity = 10;
                 document.getElementById("statusdisplay").innerHTML = status;
@@ -85,13 +86,30 @@ document.getElementById("engage").onclick = function crewSelect() {
                 correctSound.play();
                 }
             else {
+                
                 hullIntegrity--;
                 var status =
                 "<p>Hull Integrity: " + hullIntegrity + "0%</p>"
                 document.getElementById("statusdisplay").innerHTML = status;
                 console.log(hullIntegrity);                
                 console.log(guessed);
-               
+                
+                if (hullIntegrity === 0) {
+                    var gameOver = document.getElementById("gameoversound");
+                    gameOver.play();
+                    document.getElementById("picture").src = "assets/images/game-over.jpg";
+                    document.getElementById("engage").disabled = false;
+                    losses++;
+                    var warpcorebreach = "WARP CORE BREACH!";
+                    document.getElementById("wordContainer").innerHTML = warpcorebreach;
+                    var again = "RE-ENGAGE?";
+                    document.getElementById("engage").innerHTML = again;
+                }
+
+                else if (hullIntegrity < 4) {
+                    var danger = document.getElementById("dangersound");
+                    danger.play();
+                }
             
                         
                     }
