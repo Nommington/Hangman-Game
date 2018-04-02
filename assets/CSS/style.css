@@ -47,7 +47,7 @@ button {
     height: 450px;
 }
 
-h1, h2, p {
+h1, h2, p, #guessed {
     font-weight: bold;
     color: black;
     background-color: #216fbf;

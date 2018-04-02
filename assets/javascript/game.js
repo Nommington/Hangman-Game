@@ -11,7 +11,7 @@ document.getElementById("engage").onclick = function crewSelect() {
     // reset everything, disable button, and select random puzzle answer
     
     document.getElementById("engage").disabled = true;
-    hulIntegrity = 10;
+    var hullIntegrity = 10;
     var guessed = [];
     var arrayPosition = Math.floor(Math.random() * crew.length);
     var crewMember = crew[arrayPosition];
@@ -23,6 +23,7 @@ document.getElementById("engage").onclick = function crewSelect() {
     var winLoss = 
         "<p>Wins: " + wins + "</p>" +
         "<p>Losses: " + losses + "</p>"
+    console.log(hullIntegrity);
     var status =
         "<p>Hull Integrity: " + hullIntegrity + "0%</p>"
     document.getElementById('picture').src="assets/images/enterprise.jpg";
@@ -30,6 +31,7 @@ document.getElementById("engage").onclick = function crewSelect() {
     document.getElementById("record").innerHTML = winLoss;
     var clearOut = " ";
     document.getElementById("wordContainer").innerHTML = clearOut;
+    document.getElementById("guessed").innerHTML = clearOut;
         // replace title in "wordContainer" div with div blanks for letters
     for (var i=0; i< crewMember.length; i++) {
         var insignia = document.createElement("div");
@@ -106,6 +108,11 @@ document.getElementById("engage").onclick = function crewSelect() {
                     document.getElementById("engage").innerHTML = again;
                 }
 
+                else if (hullIntegrity > 3) {
+                    var wrongGuess = document.getElementById("wrongsound");
+                    wrongGuess.play();
+                }
+                
                 else if (hullIntegrity < 4) {
                     var danger = document.getElementById("dangersound");
                     danger.play();
