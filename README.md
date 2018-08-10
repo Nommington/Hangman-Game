@@ -4,7 +4,7 @@
 
 [Play it here!](https://nommington.github.io/TNG-Hangman/) (keyboard required)
 
-![screenshot](https://github.com/Nommington/Hangman-Game/blob/master/assets/images/screenshot.jpg)
+![screenshot](https://github.com/Nommington/TNG-Hangman/blob/master/assets/images/screenshot.jpg)
 ### Resources
 * [Twitter Bootstrap](getbootstrap.com)
 * Sounds from [TrekCore.com](http://www.trekcore.com/audio/)
